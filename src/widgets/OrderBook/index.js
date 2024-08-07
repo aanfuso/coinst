@@ -27,7 +27,7 @@ export default function OrderBook({ product, asks, bids }) {
           {asks && asks.map((row) => (
             <TableRow key={row[0]}>
               <TableCell>{row[1]}</TableCell>
-              <TableCell sx={{ color: "red", fontWeight: 'bold' }}>
+              <TableCell sx={{ color: "red" }}>
                 {row[0]}
               </TableCell>
             </TableRow>
@@ -41,7 +41,7 @@ export default function OrderBook({ product, asks, bids }) {
           {bids && bids.map((row) => (
             <TableRow key={row[0]} >
               <TableCell>{row[1]}</TableCell>
-              <TableCell sx={{ color: 'green', fontWeight: 'bold' }}>
+              <TableCell sx={{ color: 'green' }}>
                 {row[0]}
               </TableCell>
             </TableRow>
