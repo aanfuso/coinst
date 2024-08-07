@@ -11,6 +11,7 @@ const accent = {
 };
 
 export const palette = {
+  mode: 'dark',
   primary,
   secondary,
   accent,
