@@ -1,5 +1,5 @@
 const primary = {
-  main: 'hsl(275, 100%, 26%)',
+  main: 'hsl(360, 100%, 69%)',
 };
 
 const secondary = {
