@@ -10,13 +10,13 @@ const {
   textTransform,
 } = {
   fontFamily: '"Source Sans 3", sans-serif',
-  fontSize: 16,
+  fontSize: 12,
   bold: 700,
 };
 
 const fontVariants = {
   body2: {
-    fontSize: 14,
+    fontSize: 10,
   },
 };
 
