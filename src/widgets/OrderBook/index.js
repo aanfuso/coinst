@@ -1,15 +1,14 @@
 import {
+  Paper,
   Table,
   TableBody,
   TableCell,
   TableContainer,
   TableHead,
   TableRow,
-  Paper,
 } from '@mui/material';
 
-export default function OrderBook(props) {
-  const { product, asks, bids } = props;
+export default function OrderBook({ product, asks, bids }) {
 
   if (!asks || !bids) {
     return (<div>Loading...</div>);
