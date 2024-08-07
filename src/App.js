@@ -3,12 +3,8 @@ import { Container } from "@mui/material";
 import Layout from "./lib/components/Layout";
 
 import { base } from 'lib/themes';
+import { FOOTER_PROPS } from 'lib/constants';
 
-const FOOTER_PROPS = {
-  topText: 'Made with ❤️ by',
-  bottomText: 'Agustin Anfuso',
-  url: 'https://anfu.space',
-};
 
 function App() {
   return (
