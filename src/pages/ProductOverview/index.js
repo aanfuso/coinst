@@ -6,7 +6,7 @@ import OrderBook from "widgets/OrderBook";
 import PriceChart from "widgets/PriceChart";
 import TopOfBook from "widgets/TopOfBook";
 
-export default function Overview({
+export default function ProductOverview({
   asks,
   bids,
   spread,

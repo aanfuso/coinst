@@ -12,7 +12,7 @@ import { base, light } from 'lib/themes';
 import { FOOTER_PROPS, WS_CONFIG, LISTED_PRODUCTS } from 'constants';
 
 import PairSelector from "widgets/PairSelector";
-import Overview from "pages/Overview";
+import ProductOverview from "pages/ProductOverview";
 import reducer from "reducer";
 
 
@@ -84,7 +84,7 @@ function App() {
         left: leftNavigation,
       }}
     >
-      <Overview {...state}/>
+      <ProductOverview {...state}/>
     </Layout>
   );
 }
