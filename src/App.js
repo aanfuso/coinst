@@ -9,20 +9,12 @@ import throttle from "lodash.throttle"
 
 import Layout from "./lib/components/Layout";
 import { base, light } from 'lib/themes';
-import { FOOTER_PROPS } from 'constants';
+import { FOOTER_PROPS, WS_CONFIG } from 'constants';
 
 import PairSelector from "widgets/PairSelector";
 import Overview from "pages/Overview";
 import reducer from "reducer";
 
-
-const WS_CONFIG = {
-  "type": "subscribe",
-  "channels": [
-    "ticker",
-    "level2_batch",
-  ]
-};
 
 const initialState = {
   asks: Array(10).fill([0, 0]),
