@@ -7,6 +7,7 @@ import {
 } from '@mui/icons-material';
 import throttle from "lodash.throttle"
 
+import Paper from "./lib/components/Paper";
 import Layout from "./lib/components/Layout";
 import { base, light } from 'lib/themes';
 
@@ -88,16 +89,20 @@ function App() {
       <Container sx={{ height: '100%', mt: 12 }}>
         <Grid container justifyContent="space-between" spacing={3}>
           <Grid item xs={3}>
-            <OrderBook
-              product={product}
-              asks={state.asks}
-              bids={state.bids}
-              spread={state.spread}
-            />
+            <Paper>
+              <OrderBook
+                product={product}
+                asks={state.asks}
+                bids={state.bids}
+                spread={state.spread}
+              />
+            </Paper>
           </Grid>
 
           <Grid item xs={7}>
-            <PriceChart updates={state.orders}/>
+            <Paper>
+              <PriceChart updates={state.orders}/>
+            </Paper>
           </Grid>
 
           <Grid item xs={2}>
@@ -106,7 +111,9 @@ function App() {
                 product={product}
                 handleChange={handleProductChange}
               />
-              <TopOfBook product={product} updates={state.orders}/>
+              <Paper>
+                <TopOfBook product={product} updates={state.orders}/>
+              </Paper>
             </Stack>
           </Grid>
         </Grid>
