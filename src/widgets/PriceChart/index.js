@@ -2,7 +2,7 @@ import { LineChart } from '@mui/x-charts';
 
 
 const KEY_TO_LABEL = {
-  price: 'Price',
+  price: 'Current Price',
 };
 
 export default function ChartPrice({ updates }) {

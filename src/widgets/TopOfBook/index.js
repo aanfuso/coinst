@@ -10,12 +10,13 @@ const Item = styled(Paper)(({ theme }) => ({
 
 export default function TopOfBook({ updates }) {
   const {
-    price,
-    best_bid,
-    best_ask,
-    volume_24h,
-    best_bid_size,
     best_ask_size,
+    best_ask,
+    best_bid_size,
+    best_bid,
+    price,
+    spread,
+    volume_24h,
   } = updates.length && updates[updates.length - 1];
 
   return (
@@ -79,7 +80,7 @@ export default function TopOfBook({ updates }) {
           Spread
         </Typography>
         <Typography variant="body1">
-          {(best_ask - best_bid).toFixed(5) || "N/A"}
+          {spread || "N/A"}
         </Typography>
       </Item>
 
