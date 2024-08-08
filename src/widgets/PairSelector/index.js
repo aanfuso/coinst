@@ -5,12 +5,10 @@ import {
   Select,
 } from '@mui/material';
 
-import { LISTED_PRODUCTS } from 'lib/constants';
-
-export default function PairSelector({ product, handleChange }) {
+export default function PairSelector({ options, product, handleChange }) {
   return (
-    <FormControl>
-      <InputLabel id="pair-selector-label">Token Pair</InputLabel>
+    <FormControl size="small">
+      <InputLabel id="pair-selector-label">Token Pairs</InputLabel>
       <Select
         labelId="pair-selector-label"
         id="pair-selector"
@@ -18,7 +16,7 @@ export default function PairSelector({ product, handleChange }) {
         label="Pair"
         onChange={handleChange}
       >
-        {LISTED_PRODUCTS.map((product) => (
+        {options.map((product) => (
           <MenuItem key={product} value={product}>
             {product}
           </MenuItem>

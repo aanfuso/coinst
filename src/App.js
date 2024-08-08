@@ -1,6 +1,6 @@
 
 import { useEffect, useState, useRef, useReducer } from "react";
-import { Container, Grid, Stack, Switch } from "@mui/material";
+import { Stack, Switch } from "@mui/material";
 import {
   LightMode as LightModeIcon,
   DarkMode as DarkModeIcon,
@@ -9,24 +9,12 @@ import throttle from "lodash.throttle"
 
 import Layout from "./lib/components/Layout";
 import { base, light } from 'lib/themes';
+import { FOOTER_PROPS, WS_CONFIG, LISTED_PRODUCTS } from 'constants';
 
-import { FOOTER_PROPS } from 'lib/constants';
-
-import OrderBook from "widgets/OrderBook";
-import PriceChart from "widgets/PriceChart";
-import TopOfBook from "widgets/TopOfBook";
 import PairSelector from "widgets/PairSelector";
-
+import ProductOverview from "pages/ProductOverview";
 import reducer from "reducer";
 
-
-const WS_CONFIG = {
-  "type": "subscribe",
-  "channels": [
-    "ticker",
-    "level2_batch",
-  ]
-};
 
 const initialState = {
   asks: Array(10).fill([0, 0]),
@@ -68,49 +56,35 @@ function App() {
     setProduct(event.target.value);
   }
 
+  const rightNavigation = (
+    <Stack direction="row" spacing={1} alignItems="center">
+      <LightModeIcon />
+      <Switch
+        checked={theme === base}
+        onChange={() => setTheme(theme === base ? light : base)}
+      />
+      <DarkModeIcon />
+    </Stack>
+  );
+
+  const leftNavigation = (
+    <PairSelector
+      options={LISTED_PRODUCTS}
+      product={product}
+      handleChange={handleProductChange}
+    />
+  );
+
   return (
     <Layout
       theme={theme}
       footerProps={FOOTER_PROPS}
       navbarProps={{
-        right: (
-          <Stack direction="row" spacing={1} alignItems="center">
-            <LightModeIcon />
-            <Switch
-              checked={theme === base}
-              onChange={() => setTheme(theme === base ? light : base)}
-            />
-            <DarkModeIcon />
-          </Stack>
-        )
+        right: rightNavigation,
+        left: leftNavigation,
       }}
     >
-      <Container sx={{ height: '100%', mt: 12 }}>
-        <Grid container justifyContent="space-between" spacing={3}>
-          <Grid item xs={3}>
-            <OrderBook
-              product={product}
-              asks={state.asks}
-              bids={state.bids}
-              spread={state.spread}
-            />
-          </Grid>
-
-          <Grid item xs={7}>
-            <PriceChart updates={state.orders}/>
-          </Grid>
-
-          <Grid item xs={2}>
-            <Stack spacing={2}>
-              <PairSelector
-                product={product}
-                handleChange={handleProductChange}
-              />
-              <TopOfBook product={product} updates={state.orders}/>
-            </Stack>
-          </Grid>
-        </Grid>
-      </Container>
+      <ProductOverview {...state}/>
     </Layout>
   );
 }
