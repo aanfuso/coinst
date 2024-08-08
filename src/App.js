@@ -1,5 +1,5 @@
 
-import { useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { Container, Grid, Stack } from "@mui/material";
 
 import Layout from "./lib/components/Layout";
@@ -12,11 +12,38 @@ import PriceChart from "widgets/PriceChart";
 import TopOfBook from "widgets/TopOfBook";
 import PairSelector from "widgets/PairSelector";
 
+const WS_CONFIG = {
+  "type": "subscribe",
+  "channels": [
+    "ticker",
+    "level2_batch",
+  ]
+};
 
 function App() {
+  const ws = useRef(null);
   const [product, setProduct] = useState('BTC-USD');
   const orders = [];
   const ticker = [];
+
+  useEffect(() => {
+    const socket = new WebSocket(process.env.REACT_APP_COINBASE_PRODUCTION_WS_URL);
+
+    socket.onopen = () => socket.send(JSON.stringify({
+      ...WS_CONFIG,
+      "product_ids": [product],
+    }));
+
+    socket.onmessage = (event) => {
+      const data = JSON.parse(event.data);
+
+      console.log(data);
+    };
+
+    ws.current = socket;
+
+    return () => socket.close();
+  }, [product]);
 
   const handleProductChange = (event) => {
     setProduct(event.target.value);
