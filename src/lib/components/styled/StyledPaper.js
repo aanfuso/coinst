@@ -1,7 +1,7 @@
 import { Paper } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
-const PaperComponent = styled(Paper)(({ theme }) => ({
+const StyledPaper = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
   ...theme.typography.body2,
   padding: theme.spacing(1),
@@ -9,4 +9,4 @@ const PaperComponent = styled(Paper)(({ theme }) => ({
   color: theme.palette.text.secondary,
 }));
 
-export default PaperComponent;
+export default StyledPaper;

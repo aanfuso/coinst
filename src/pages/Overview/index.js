@@ -1,6 +1,6 @@
 import { Container, Grid, Stack } from "@mui/material";
 
-import Paper from "lib/components/Paper";
+import Paper from "lib/components/styled/StyledPaper";
 
 import OrderBook from "widgets/OrderBook";
 import PriceChart from "widgets/PriceChart";
