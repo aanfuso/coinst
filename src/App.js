@@ -9,7 +9,7 @@ import throttle from "lodash.throttle"
 
 import Layout from "./lib/components/Layout";
 import { base, light } from 'lib/themes';
-import { FOOTER_PROPS, WS_CONFIG } from 'constants';
+import { FOOTER_PROPS, WS_CONFIG, LISTED_PRODUCTS } from 'constants';
 
 import PairSelector from "widgets/PairSelector";
 import Overview from "pages/Overview";
@@ -69,6 +69,7 @@ function App() {
 
   const leftNavigation = (
     <PairSelector
+      options={LISTED_PRODUCTS}
       product={product}
       handleChange={handleProductChange}
     />
