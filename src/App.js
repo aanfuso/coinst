@@ -1,5 +1,5 @@
 
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, useReducer } from "react";
 import { Container, Grid, Stack } from "@mui/material";
 import throttle from "lodash.throttle"
 
@@ -13,6 +13,9 @@ import PriceChart from "widgets/PriceChart";
 import TopOfBook from "widgets/TopOfBook";
 import PairSelector from "widgets/PairSelector";
 
+import reducer from "reducer";
+
+
 const WS_CONFIG = {
   "type": "subscribe",
   "channels": [
@@ -21,11 +24,17 @@ const WS_CONFIG = {
   ]
 };
 
+const initialState = {
+  asks: Array(10).fill([0, 0]),
+  bids: Array(10).fill([0, 0]),
+  spread: 0,
+  orders: [],
+};
+
 function App() {
   const ws = useRef(null);
   const [product, setProduct] = useState('BTC-USD');
-  const orders = [];
-  const ticker = [];
+  const [state, dispatch] = useReducer(reducer, initialState);
 
   useEffect(() => {
     const socket = new WebSocket(process.env.REACT_APP_COINBASE_PRODUCTION_WS_URL);
@@ -37,9 +46,11 @@ function App() {
 
     socket.onmessage = throttle((event) => {
       const data = JSON.parse(event.data);
+      const { type } = data;
 
-      console.log(data);
-    }, 2000, { leading: true });
+      dispatch({ type, payload: data });
+
+    }, 1000, { leading: true });
 
     ws.current = socket;
 
@@ -47,6 +58,8 @@ function App() {
   }, [product]);
 
   const handleProductChange = (event) => {
+    dispatch({ type: 'RESET', payload: initialState });
+
     setProduct(event.target.value);
   }
 
@@ -58,11 +71,16 @@ function App() {
       <Container sx={{ height: '100%', mt: 5 }}>
         <Grid container justifyContent="space-between" spacing={3}>
           <Grid item xs={3}>
-            <OrderBook product={product} {...orders}/>
+            <OrderBook
+              product={product}
+              asks={state.asks}
+              bids={state.bids}
+              spread={state.spread}
+            />
           </Grid>
 
           <Grid item xs={7}>
-            <PriceChart updates={ticker}/>
+            <PriceChart updates={state.orders}/>
           </Grid>
 
           <Grid item xs={2}>
@@ -71,7 +89,7 @@ function App() {
                 product={product}
                 handleChange={handleProductChange}
               />
-              <TopOfBook product={product} updates={ticker}/>
+              <TopOfBook product={product} updates={state.orders}/>
             </Stack>
           </Grid>
         </Grid>

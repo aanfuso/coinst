@@ -8,7 +8,7 @@ import {
   TableRow,
 } from '@mui/material';
 
-export default function OrderBook({ product, asks, bids }) {
+export default function OrderBook({ product, asks, bids, spread }) {
   if (!asks || !bids) {
     return (<div>Loading...</div>);
   }
@@ -34,7 +34,7 @@ export default function OrderBook({ product, asks, bids }) {
 
           <TableRow key="spread">
             <TableCell>USD Spread</TableCell>
-            <TableCell>XXX</TableCell>
+            <TableCell>{spread}</TableCell>
           </TableRow>
 
           {bids && bids.map((row, index) => (
