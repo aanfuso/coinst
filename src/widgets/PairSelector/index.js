@@ -7,7 +7,7 @@ import {
 
 import { LISTED_PRODUCTS } from 'lib/constants';
 
-export default function PaisSelector({ product, handleChange }) {
+export default function PairSelector({ product, handleChange }) {
   return (
     <FormControl>
       <InputLabel id="pair-selector-label">Token Pair</InputLabel>
