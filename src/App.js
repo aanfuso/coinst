@@ -1,6 +1,7 @@
 
 import { useEffect, useState, useRef } from "react";
 import { Container, Grid, Stack } from "@mui/material";
+import throttle from "lodash.throttle"
 
 import Layout from "./lib/components/Layout";
 import { base } from 'lib/themes';
@@ -34,11 +35,11 @@ function App() {
       "product_ids": [product],
     }));
 
-    socket.onmessage = (event) => {
+    socket.onmessage = throttle((event) => {
       const data = JSON.parse(event.data);
 
       console.log(data);
-    };
+    }, 2000, { leading: true });
 
     ws.current = socket;
 
