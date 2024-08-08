@@ -9,7 +9,7 @@ import throttle from "lodash.throttle"
 
 import Layout from "./lib/components/Layout";
 import { base, light } from 'lib/themes';
-import { FOOTER_PROPS } from 'lib/constants';
+import { FOOTER_PROPS } from 'constants';
 
 import PairSelector from "widgets/PairSelector";
 import Overview from "pages/Overview";

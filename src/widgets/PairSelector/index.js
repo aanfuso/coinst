@@ -5,7 +5,7 @@ import {
   Select,
 } from '@mui/material';
 
-import { LISTED_PRODUCTS } from 'lib/constants';
+import { LISTED_PRODUCTS } from 'constants';
 
 export default function PairSelector({ product, handleChange }) {
   return (
