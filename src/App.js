@@ -1,10 +1,14 @@
 
 import { useEffect, useState, useRef, useReducer } from "react";
-import { Container, Grid, Stack } from "@mui/material";
+import { Container, Grid, Stack, Switch } from "@mui/material";
+import {
+  LightMode as LightModeIcon,
+  DarkMode as DarkModeIcon,
+} from '@mui/icons-material';
 import throttle from "lodash.throttle"
 
 import Layout from "./lib/components/Layout";
-import { base } from 'lib/themes';
+import { base, light } from 'lib/themes';
 
 import { FOOTER_PROPS } from 'lib/constants';
 
@@ -33,6 +37,7 @@ const initialState = {
 
 function App() {
   const ws = useRef(null);
+  const [theme, setTheme] = useState(base);
   const [product, setProduct] = useState('BTC-USD');
   const [state, dispatch] = useReducer(reducer, initialState);
 
@@ -65,10 +70,22 @@ function App() {
 
   return (
     <Layout
-      theme={base}
+      theme={theme}
       footerProps={FOOTER_PROPS}
+      navbarProps={{
+        right: (
+          <Stack direction="row" spacing={1} alignItems="center">
+            <LightModeIcon />
+            <Switch
+              checked={theme === base}
+              onChange={() => setTheme(theme === base ? light : base)}
+            />
+            <DarkModeIcon />
+          </Stack>
+        )
+      }}
     >
-      <Container sx={{ height: '100%', mt: 5 }}>
+      <Container sx={{ height: '100%', mt: 12 }}>
         <Grid container justifyContent="space-between" spacing={3}>
           <Grid item xs={3}>
             <OrderBook
