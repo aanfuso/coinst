@@ -9,8 +9,8 @@ import { LISTED_PRODUCTS } from 'lib/constants';
 
 export default function PairSelector({ product, handleChange }) {
   return (
-    <FormControl>
-      <InputLabel id="pair-selector-label">Token Pair</InputLabel>
+    <FormControl size="small">
+      <InputLabel id="pair-selector-label">Token Pairs</InputLabel>
       <Select
         labelId="pair-selector-label"
         id="pair-selector"

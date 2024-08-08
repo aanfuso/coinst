@@ -11,6 +11,7 @@ import Layout from "./lib/components/Layout";
 import { base, light } from 'lib/themes';
 import { FOOTER_PROPS } from 'lib/constants';
 
+import PairSelector from "widgets/PairSelector";
 import Overview from "pages/Overview";
 import reducer from "reducer";
 
@@ -63,21 +64,31 @@ function App() {
     setProduct(event.target.value);
   }
 
+  const rightNavigation = (
+    <Stack direction="row" spacing={1} alignItems="center">
+      <LightModeIcon />
+      <Switch
+        checked={theme === base}
+        onChange={() => setTheme(theme === base ? light : base)}
+      />
+      <DarkModeIcon />
+    </Stack>
+  );
+
+  const leftNavigation = (
+    <PairSelector
+      product={product}
+      handleChange={handleProductChange}
+    />
+  );
+
   return (
     <Layout
       theme={theme}
       footerProps={FOOTER_PROPS}
       navbarProps={{
-        right: (
-          <Stack direction="row" spacing={1} alignItems="center">
-            <LightModeIcon />
-            <Switch
-              checked={theme === base}
-              onChange={() => setTheme(theme === base ? light : base)}
-            />
-            <DarkModeIcon />
-          </Stack>
-        )
+        right: rightNavigation,
+        left: leftNavigation,
       }}
     >
       <Overview {...state}/>

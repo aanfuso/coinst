@@ -17,6 +17,7 @@ export default function Bar(props) {
     navigation = [],
     logo,
     right,
+    left,
   } = props;
 
   return (
@@ -30,6 +31,7 @@ export default function Bar(props) {
             >
               {logo}
             </Link>
+            {left}
           </Box>
 
           <Box sx={{ display: { xs: 'none', md: 'flex' }}}>
