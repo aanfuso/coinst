@@ -1,24 +1,25 @@
 import {
   FormControl,
-  InputLabel,
+  ListItemIcon,
+  ListItemText,
   MenuItem,
   Select,
 } from '@mui/material';
 
-export default function PairSelector({ options, product, handleChange }) {
+
+export default function PairSelector({ options, selected, handleChange }) {
   return (
-    <FormControl size="small">
-      <InputLabel id="pair-selector-label">Token Pairs</InputLabel>
+    <FormControl size="small" variant="filled" hiddenLabel={true}>
       <Select
-        labelId="pair-selector-label"
         id="pair-selector"
-        value={product}
         label="Pair"
         onChange={handleChange}
+        value={selected}
       >
-        {options.map((product) => (
-          <MenuItem key={product} value={product}>
-            {product}
+        {options.map(({value, icon}) => (
+          <MenuItem key={value} value={value}>
+            <ListItemIcon>{icon}</ListItemIcon>
+            <ListItemText>{value}</ListItemText>
           </MenuItem>
         ))}
       </Select>

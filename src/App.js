@@ -25,8 +25,9 @@ const initialState = {
 
 function App() {
   const ws = useRef(null);
+  const defaultProductId = LISTED_PRODUCTS[0].value;
   const [theme, setTheme] = useState(base);
-  const [product, setProduct] = useState('BTC-USD');
+  const [product, setProduct] = useState(defaultProductId);
   const [state, dispatch] = useReducer(reducer, initialState);
 
   useEffect(() => {
@@ -70,7 +71,7 @@ function App() {
   const leftNavigation = (
     <PairSelector
       options={LISTED_PRODUCTS}
-      product={product}
+      selected={product}
       handleChange={handleProductChange}
     />
   );

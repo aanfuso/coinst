@@ -1,5 +1,7 @@
 import SvgIcon from '@mui/material/SvgIcon';
 
+// Icons from https://cryptologos.cc/
+
 export const BitcoinCashIcon = (props) => {
   return (
     <SvgIcon {...props} viewBox="0 0 788 788">
@@ -20,7 +22,7 @@ export const BitcoinCashIcon = (props) => {
 
 
 export const BitcoinIcon = (props) => (
-  <SvgIcon {...props} viewBox="0 0 4091.27 4091.73">
+  <SvgIcon {...props} viewBox="0 0 4091 4091">
     <g id="Layer_x0020_1">
       <g id="_1421344023328">
         <path
@@ -39,7 +41,7 @@ export const BitcoinIcon = (props) => (
 );
 
 export const EthereumIcon = (props) => (
-  <SvgIcon {...props} viewBox="0 0 784.37 1277.39">
+  <SvgIcon {...props} viewBox="0 0 784 1277">
     <g id="Layer_x0020_1">
       <g id="_1421394342400">
         <g>
@@ -56,7 +58,7 @@ export const EthereumIcon = (props) => (
 );
 
 export const LitecoinIcon = (props) => (
-  <SvgIcon {...props} viewBox="0 0 82.6 82.6">
+  <SvgIcon {...props} viewBox="0 0 82 82">
     <circle cx="41.3" cy="41.3" r="36.83" fill="#fff" />
     <path
       d="M41.3,0A41.3,41.3,0,1,0,82.6,41.3h0A41.18,41.18,0,0,0,41.54,0ZM42,42.7,37.7,57.2h23a1.16,1.16,0,0,1,1.2,1.12v.38l-2,6.9a1.49,1.49,0,0,1-1.5,1.1H23.2l5.9-20.1-6.6,2L24,44l6.6-2,8.3-28.2a1.51,1.51,0,0,1,1.5-1.1h8.9a1.16,1.16,0,0,1,1.2,1.12v.38L43.5,38l6.6-2-1.4,4.8Z"
