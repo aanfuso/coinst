@@ -22,7 +22,7 @@ export default function TopOfBook({ updates }) {
 
   return (
     <Grid container spacing={2} pb={2}>
-      <Grid item xs={4}>
+      <Grid item xs={6} sm={4}>
         <Item>
           <Typography variant="subtitle2">
             Price
@@ -33,7 +33,7 @@ export default function TopOfBook({ updates }) {
         </Item>
       </Grid>
 
-      <Grid item xs={4}>
+      <Grid item xs={6} sm={4}>
         <Item>
           <Typography variant="subtitle2">
             Spread
@@ -44,7 +44,7 @@ export default function TopOfBook({ updates }) {
         </Item>
       </Grid>
 
-      <Grid item xs={4}>
+      <Grid item xs={12} sm={4}>
         <Item>
           <Typography variant="subtitle2">
             24h Volume
@@ -55,7 +55,7 @@ export default function TopOfBook({ updates }) {
         </Item>
       </Grid>
 
-      <Grid item xs={6}>
+      <Grid item xs={12} sm={6}>
         <Item>
           <Typography gutterBottom variant="subtitle2">
             Best Bid
@@ -87,7 +87,7 @@ export default function TopOfBook({ updates }) {
         </Item>
       </Grid>
 
-      <Grid item xs={6}>
+      <Grid item xs={12} sm={6}>
         <Item>
           <Typography gutterBottom variant="subtitle2">
             Best Ask
