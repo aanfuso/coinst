@@ -9,7 +9,7 @@ const {
   bold,
   textTransform,
 } = {
-  fontFamily: '"Source Sans 3", sans-serif',
+  fontFamily: '"Inter", sans-serif',
   fontSize: 14,
   bold: 700,
 };
