@@ -25,14 +25,12 @@ export default function ProductOverview({
         </Grid>
 
         <Grid item xs={12} md={4}>
-          <Paper>
-            <OrderBook
-              product={product}
-              asks={asks}
-              bids={bids}
-              spread={spread}
-            />
-          </Paper>
+          <OrderBook
+            product={product}
+            asks={asks}
+            bids={bids}
+            spread={spread}
+          />
         </Grid>
       </Grid>
     </Container>

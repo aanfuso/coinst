@@ -38,7 +38,10 @@ export default function OrderBook({ product, asks, bids, spread }) {
           </TableRow>
 
           {bids && bids.map((row, index) => (
-            <TableRow key={`bid-${row[0]}-${index}`} >
+            <TableRow
+              key={`bid-${row[0]}-${index}`}
+              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+            >
               <TableCell>{row[1]}</TableCell>
               <TableCell sx={{ color: 'green' }}>
                 {row[0]}
