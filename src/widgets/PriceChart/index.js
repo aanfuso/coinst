@@ -27,7 +27,7 @@ export default function ChartPrice({ updates }) {
         dataKey: key,
         label: KEY_TO_LABEL[key],
         showMark: false,
-        color: '#EDC949',
+        color: '#8751FF',
         valueFormatter: (value) => `$${value}`,
       }))}
       dataset={updates}

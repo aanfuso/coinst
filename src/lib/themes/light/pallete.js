@@ -1,5 +1,5 @@
 const primary = {
-  main: 'hsl(360, 100%, 69%)',
+  main: '#8751FF',
 };
 
 const secondary = {
