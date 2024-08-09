@@ -32,7 +32,7 @@ export default function ChartPrice({ updates }) {
       }))}
       dataset={updates}
       grid={{ vertical: true, horizontal: true }}
-      height={500}
+      height={450}
     />
   );
 }
