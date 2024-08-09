@@ -6,6 +6,7 @@ import { styled } from '@mui/material/styles';
 const Item = styled(Paper)(({ theme }) => ({
   padding: theme.spacing(1),
   textAlign: 'center',
+  borderRadius: 16,
 }));
 
 export default function TopOfBook({ updates }) {
