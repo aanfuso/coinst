@@ -13,6 +13,7 @@ import { FOOTER_PROPS, WS_CONFIG, LISTED_PRODUCTS } from 'constants';
 
 import PairSelector from "lib/components/PairSelector";
 import ProductOverview from "pages/ProductOverview";
+import useLocalStorage from "hooks/localstorage";
 import reducer from "reducer";
 
 
@@ -26,7 +27,7 @@ const initialState = {
 function App() {
   const ws = useRef(null);
   const defaultProductId = LISTED_PRODUCTS[0].value;
-  const [theme, setTheme] = useState(base);
+  const [mode, setMode] = useLocalStorage('mode', 'base');
   const [product, setProduct] = useState(defaultProductId);
   const [state, dispatch] = useReducer(reducer, initialState);
 
@@ -61,12 +62,14 @@ function App() {
     <Stack direction="row" spacing={1} alignItems="center">
       <LightModeIcon />
       <Switch
-        checked={theme === base}
-        onChange={() => setTheme(theme === base ? light : base)}
+        checked={mode === 'base'}
+        onChange={() => setMode(mode === 'base' ? 'light' : 'base')}
       />
       <DarkModeIcon />
     </Stack>
   );
+
+  const theme = mode === 'base' ? base : light;
 
   const leftNavigation = (
     <PairSelector
