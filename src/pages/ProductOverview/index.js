@@ -2,9 +2,9 @@ import { Container, Grid } from "@mui/material";
 
 import Paper from "lib/components/styled/StyledPaper";
 
-import OrderBook from "widgets/OrderBook";
-import PriceChart from "widgets/PriceChart";
-import TopOfBook from "widgets/TopOfBook";
+import OrderBook from "./widgets/OrderBook";
+import PriceChart from "./widgets/PriceChart";
+import TopOfBook from "./widgets/TopOfBook";
 
 export default function ProductOverview({
   asks,
