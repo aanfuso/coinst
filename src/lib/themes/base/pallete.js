@@ -3,16 +3,11 @@ const primary = {
 };
 
 const secondary = {
-  main: 'hsl(256, 49%, 67%)',
-};
-
-const accent = {
-  main: 'hsl(208, 18%, 16%)',
+  main: '#D0D0D1',
 };
 
 export const palette = {
   mode: 'dark',
   primary,
   secondary,
-  accent,
 };

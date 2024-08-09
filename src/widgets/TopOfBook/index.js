@@ -24,7 +24,7 @@ export default function TopOfBook({ updates }) {
     <Grid container spacing={2} pb={2}>
       <Grid item xs={4}>
         <Item>
-          <Typography variant="body2">
+          <Typography variant="subtitle2">
             Price
           </Typography>
           <Typography variant="body1">
@@ -35,7 +35,7 @@ export default function TopOfBook({ updates }) {
 
       <Grid item xs={4}>
         <Item>
-          <Typography variant="body2">
+          <Typography variant="subtitle2">
             Spread
           </Typography>
           <Typography variant="body1">
@@ -46,7 +46,7 @@ export default function TopOfBook({ updates }) {
 
       <Grid item xs={4}>
         <Item>
-          <Typography variant="body2">
+          <Typography variant="subtitle2">
             24h Volume
           </Typography>
           <Typography variant="body1">
@@ -57,7 +57,7 @@ export default function TopOfBook({ updates }) {
 
       <Grid item xs={6}>
         <Item>
-          <Typography variant="subtitle1">
+          <Typography gutterBottom variant="subtitle2">
             Best Bid
           </Typography>
 
@@ -67,7 +67,7 @@ export default function TopOfBook({ updates }) {
             alignItems="stretch"
           >
             <Stack direction="column">
-              <Typography variant="body2">
+              <Typography variant="body2" color="secondary">
                 Bid Price
               </Typography>
               <Typography variant="body1">
@@ -76,7 +76,7 @@ export default function TopOfBook({ updates }) {
             </Stack>
 
             <Stack direction="column">
-              <Typography variant="body2">
+              <Typography variant="body2" color="secondary">
                 Bid Quantity
               </Typography>
               <Typography variant="body1">
@@ -89,7 +89,7 @@ export default function TopOfBook({ updates }) {
 
       <Grid item xs={6}>
         <Item>
-          <Typography variant="subtitle1">
+          <Typography gutterBottom variant="subtitle2">
             Best Ask
           </Typography>
           <Stack
@@ -98,7 +98,7 @@ export default function TopOfBook({ updates }) {
             alignItems="stretch"
           >
             <Stack direction="column">
-              <Typography variant="body2">
+              <Typography variant="body2" color="secondary">
                 Ask Price
               </Typography>
               <Typography variant="body1">
@@ -107,7 +107,7 @@ export default function TopOfBook({ updates }) {
             </Stack>
 
             <Stack direction="column">
-              <Typography variant="body2">
+              <Typography variant="body2" color="secondary">
                 Ask Quantity
               </Typography>
               <Typography variant="body1">
