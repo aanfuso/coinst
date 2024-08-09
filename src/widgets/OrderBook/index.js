@@ -1,5 +1,4 @@
 import {
-  Paper,
   Table,
   TableBody,
   TableCell,
@@ -7,6 +6,15 @@ import {
   TableHead,
   TableRow,
 } from '@mui/material';
+import { styled } from '@mui/material/styles';
+
+const StyledBidTableCell = styled(TableCell)(({ theme }) => ({
+  color: theme.palette.green.main,
+}));
+
+const StyledAskTableCell = styled(TableCell)(({ theme }) => ({
+  color: theme.palette.red.main,
+}));
 
 export default function OrderBook({ product, asks, bids, spread }) {
   if (!asks || !bids) {
@@ -14,7 +22,7 @@ export default function OrderBook({ product, asks, bids, spread }) {
   }
 
   return (
-    <TableContainer component={Paper}>
+    <TableContainer sx={{ borderRadius: 4 }} >
       <Table size="small" aria-label={`${product} Order Book` }>
         <TableHead>
           <TableRow>
@@ -26,9 +34,9 @@ export default function OrderBook({ product, asks, bids, spread }) {
           {asks && asks.map((row, index) => (
             <TableRow key={`ask-${row[0]}-${index}`}>
               <TableCell>{row[1]}</TableCell>
-              <TableCell sx={{ color: "red" }}>
+              <StyledAskTableCell>
                 {row[0]}
-              </TableCell>
+              </StyledAskTableCell>
             </TableRow>
           ))}
 
@@ -43,9 +51,9 @@ export default function OrderBook({ product, asks, bids, spread }) {
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >
               <TableCell>{row[1]}</TableCell>
-              <TableCell sx={{ color: 'green' }}>
+              <StyledBidTableCell>
                 {row[0]}
-              </TableCell>
+              </StyledBidTableCell>
             </TableRow>
           ))}
         </TableBody>
