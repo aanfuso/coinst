@@ -1,6 +1,6 @@
 import { Grid, Paper, Stack, Typography } from "@mui/material";
 
-import { styled } from '@mui/material/styles';
+import { styled } from "@mui/material/styles";
 
 
 const Item = styled(Paper)(({ theme }) => ({

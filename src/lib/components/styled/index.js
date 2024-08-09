@@ -1,1 +1,1 @@
-export { default as StyledPaper } from './StyledPaper';
+export { default as StyledPaper } from "./StyledPaper";

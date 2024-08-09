@@ -4,12 +4,12 @@ import { Stack, Switch } from "@mui/material";
 import {
   LightMode as LightModeIcon,
   DarkMode as DarkModeIcon,
-} from '@mui/icons-material';
+} from "@mui/icons-material";
 import throttle from "lodash.throttle"
 
 import Layout from "./lib/components/Layout";
-import { base, light } from 'lib/themes';
-import { FOOTER_PROPS, WS_CONFIG, LISTED_PRODUCTS } from 'constants';
+import { base, light } from "lib/themes";
+import { FOOTER_PROPS, WS_CONFIG, LISTED_PRODUCTS } from "constants";
 
 import PairSelector from "lib/components/PairSelector";
 import ProductOverview from "pages/ProductOverview";
@@ -36,7 +36,7 @@ function App() {
 
     socket.onopen = () => socket.send(JSON.stringify({
       ...WS_CONFIG,
-      "product_ids": [product],
+      'product_ids': [product],
     }));
 
     socket.onmessage = throttle((event) => {
@@ -44,7 +44,6 @@ function App() {
       const { type } = data;
 
       dispatch({ type, payload: data });
-
     }, 1000, { leading: true });
 
     ws.current = socket;

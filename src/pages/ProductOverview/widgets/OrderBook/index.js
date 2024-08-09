@@ -5,8 +5,8 @@ import {
   TableContainer,
   TableHead,
   TableRow,
-} from '@mui/material';
-import { styled } from '@mui/material/styles';
+} from "@mui/material";
+import { styled } from "@mui/material/styles";
 
 const StyledBidTableCell = styled(TableCell)(({ theme }) => ({
   color: theme.palette.green.main,

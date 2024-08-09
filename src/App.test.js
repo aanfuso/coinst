@@ -1,4 +1,4 @@
-import reducer from './reducer';
+import reducer from "./reducer";
 
 describe('reducer', () => {
   it('should return the current state when action type is unknown', () => {

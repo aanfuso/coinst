@@ -1,7 +1,7 @@
-import { createTheme, responsiveFontSizes } from '@mui/material/styles';
+import { createTheme, responsiveFontSizes } from "@mui/material/styles";
 
-import { palette } from './pallete';
-import { typography } from './typography';
+import { palette } from "./pallete";
+import { typography } from "./typography";
 
 const theme = createTheme({
   palette,

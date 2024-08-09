@@ -3,7 +3,7 @@ import {
   EthereumIcon,
   LitecoinIcon,
   BitcoinCashIcon,
-} from 'lib/icons';
+} from "lib/icons";
 
 
 const BTC_USD = 'BTC-USD';

@@ -1,8 +1,8 @@
-import { LineChart } from '@mui/x-charts';
+import { LineChart } from "@mui/x-charts";
 
 
 const KEY_TO_LABEL = {
-  price: 'Current Price',
+  price: 'Price',
 };
 
 export default function ChartPrice({ updates }) {
