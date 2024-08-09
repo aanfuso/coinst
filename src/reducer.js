@@ -15,7 +15,7 @@ export default function reducer(state, action) {
 
   switch (type) {
     case 'l2update':
-      const { changes, depth = 12 } = payload;
+      const { changes, depth = 10 } = payload;
 
       const asksUpdates = parseChanges(changes, 'sell');
       const bidsUpdates = parseChanges(changes, 'buy');

@@ -1,4 +1,4 @@
-import { Grid, Paper, Typography } from "@mui/material";
+import { Grid, Paper, Stack, Typography } from "@mui/material";
 
 import { styled } from '@mui/material/styles';
 
@@ -60,19 +60,29 @@ export default function TopOfBook({ updates }) {
             Best Bid
           </Typography>
 
-          <Typography variant="body1">
-            {best_bid || "N/A"}
-          </Typography>
-          <Typography variant="body2">
-            Bid Price
-          </Typography>
+          <Stack
+            direction="row"
+            justifyContent="space-evenly"
+            alignItems="stretch"
+          >
+            <Stack direction="column">
+              <Typography variant="body2">
+                Bid Price
+              </Typography>
+              <Typography variant="body1">
+                {best_bid || "N/A"}
+              </Typography>
+            </Stack>
 
-          <Typography variant="body1">
-            {best_bid_size || "N/A"}
-          </Typography>
-          <Typography variant="body2">
-            Bid Quantity
-          </Typography>
+            <Stack direction="column">
+              <Typography variant="body2">
+                Bid Quantity
+              </Typography>
+              <Typography variant="body1">
+                {best_bid_size || "N/A"}
+              </Typography>
+            </Stack>
+          </Stack>
         </Item>
       </Grid>
 
@@ -81,20 +91,29 @@ export default function TopOfBook({ updates }) {
           <Typography variant="subtitle1">
             Best Ask
           </Typography>
+          <Stack
+            direction="row"
+            justifyContent="space-evenly"
+            alignItems="stretch"
+          >
+            <Stack direction="column">
+              <Typography variant="body2">
+                Ask Price
+              </Typography>
+              <Typography variant="body1">
+                {best_ask || "N/A"}
+              </Typography>
+            </Stack>
 
-          <Typography variant="body1">
-            {best_ask || "N/A"}
-          </Typography>
-          <Typography variant="body2">
-            Ask Price
-          </Typography>
-
-          <Typography variant="body1">
-            {best_ask_size || "N/A"}
-          </Typography>
-          <Typography variant="body2">
-            Ask Quantity
-          </Typography>
+            <Stack direction="column">
+              <Typography variant="body2">
+                Ask Quantity
+              </Typography>
+              <Typography variant="body1">
+                {best_ask_size || "N/A"}
+              </Typography>
+            </Stack>
+          </Stack>
         </Item>
       </Grid>
     </Grid>
