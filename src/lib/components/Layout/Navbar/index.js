@@ -19,7 +19,7 @@ export default function Bar(props) {
   } = props;
 
   return (
-    <AppBar {...appBarStyles} >
+    <AppBar {...appBarStyles} color="background" elevation={0} >
       <Container disableGutters maxWidth="lg">
         <Toolbar>
           <Box sx={{ flexGrow: 1, pt: 2 }}>

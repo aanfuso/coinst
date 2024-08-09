@@ -15,7 +15,7 @@ export default function ProductOverview({
 }) {
 
   return (
-    <Container sx={{ height: '100%', mt: 12 }}>
+    <Container sx={{ height: '100%', mt: 16 }}>
       <Grid container justifyContent="space-between" spacing={3}>
         <Grid item xs={12} md={8}>
           <TopOfBook product={product} updates={orders}/>
