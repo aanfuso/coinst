@@ -11,7 +11,7 @@ import Layout from "./lib/components/Layout";
 import { base, light } from 'lib/themes';
 import { FOOTER_PROPS, WS_CONFIG, LISTED_PRODUCTS } from 'constants';
 
-import PairSelector from "widgets/PairSelector";
+import PairSelector from "lib/components/PairSelector";
 import ProductOverview from "pages/ProductOverview";
 import reducer from "reducer";
 
