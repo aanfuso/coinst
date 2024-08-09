@@ -1,4 +1,4 @@
-import { Container, Grid, Stack } from "@mui/material";
+import { Container, Grid } from "@mui/material";
 
 import Paper from "lib/components/styled/StyledPaper";
 
@@ -17,7 +17,14 @@ export default function ProductOverview({
   return (
     <Container sx={{ height: '100%', mt: 12 }}>
       <Grid container justifyContent="space-between" spacing={3}>
-        <Grid item xs={3}>
+        <Grid item xs={12} md={8}>
+          <TopOfBook product={product} updates={orders}/>
+          <Paper>
+            <PriceChart updates={orders}/>
+          </Paper>
+        </Grid>
+
+        <Grid item xs={12} md={4}>
           <Paper>
             <OrderBook
               product={product}
@@ -26,20 +33,6 @@ export default function ProductOverview({
               spread={spread}
             />
           </Paper>
-        </Grid>
-
-        <Grid item xs={7}>
-          <Paper>
-            <PriceChart updates={orders}/>
-          </Paper>
-        </Grid>
-
-        <Grid item xs={2}>
-          <Stack spacing={2}>
-            <Paper>
-              <TopOfBook product={product} updates={orders}/>
-            </Paper>
-          </Stack>
         </Grid>
       </Grid>
     </Container>

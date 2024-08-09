@@ -1,4 +1,4 @@
-import { Divider, Paper, Stack, Typography } from "@mui/material";
+import { Grid, Paper, Typography } from "@mui/material";
 
 import { styled } from '@mui/material/styles';
 
@@ -20,78 +20,83 @@ export default function TopOfBook({ updates }) {
   } = updates.length && updates[updates.length - 1];
 
   return (
-    <Stack
-      justifyContent="space-between"
-      alignItems="stretch"
-      spacing={2}
-      divider={<Divider orientation="horizontal" />}
-    >
-      <Item>
-        <Typography variant="body2">
-          Price
-        </Typography>
-        <Typography variant="body1">
-          {price || "N/A"}
-        </Typography>
-      </Item>
+    <Grid container spacing={2} pb={2}>
+      <Grid item xs={4}>
+        <Item>
+          <Typography variant="body2">
+            Price
+          </Typography>
+          <Typography variant="body1">
+            {price || "N/A"}
+          </Typography>
+        </Item>
+      </Grid>
 
-      <Item>
-        <Typography variant="subtitle1">
-          Best Bid
-        </Typography>
+      <Grid item xs={4}>
+        <Item>
+          <Typography variant="body2">
+            Spread
+          </Typography>
+          <Typography variant="body1">
+            {spread || "N/A"}
+          </Typography>
+        </Item>
+      </Grid>
 
-        <Typography variant="body1">
-          {best_bid || "N/A"}
-        </Typography>
-        <Typography variant="body2">
-          Bid Price
-        </Typography>
+      <Grid item xs={4}>
+        <Item>
+          <Typography variant="body2">
+            24h Volume
+          </Typography>
+          <Typography variant="body1">
+            {volume_24h || "N/A"}
+          </Typography>
+        </Item>
+      </Grid>
 
-        <Typography variant="body1">
-          {best_bid_size || "N/A"}
-        </Typography>
-        <Typography variant="body2">
-          Bid Quantity
-        </Typography>
-      </Item>
+      <Grid item xs={6}>
+        <Item>
+          <Typography variant="subtitle1">
+            Best Bid
+          </Typography>
 
-      <Item>
-        <Typography variant="subtitle1">
-          Best Ask
-        </Typography>
+          <Typography variant="body1">
+            {best_bid || "N/A"}
+          </Typography>
+          <Typography variant="body2">
+            Bid Price
+          </Typography>
 
-        <Typography variant="body1">
-          {best_ask || "N/A"}
-        </Typography>
-        <Typography variant="body2">
-          Ask Price
-        </Typography>
+          <Typography variant="body1">
+            {best_bid_size || "N/A"}
+          </Typography>
+          <Typography variant="body2">
+            Bid Quantity
+          </Typography>
+        </Item>
+      </Grid>
 
-        <Typography variant="body1">
-          {best_ask_size || "N/A"}
-        </Typography>
-        <Typography variant="body2">
-          Ask Quantity
-        </Typography>
-      </Item>
+      <Grid item xs={6}>
+        <Item>
+          <Typography variant="subtitle1">
+            Best Ask
+          </Typography>
 
-      <Item>
-        <Typography variant="body2">
-          Spread
-        </Typography>
-        <Typography variant="body1">
-          {spread || "N/A"}
-        </Typography>
-      </Item>
+          <Typography variant="body1">
+            {best_ask || "N/A"}
+          </Typography>
+          <Typography variant="body2">
+            Ask Price
+          </Typography>
 
-      <Item>
-        <Typography variant="body2">
-          24h Volume
-        </Typography>
-        <Typography variant="body1">
-          {volume_24h || "N/A"}
-        </Typography>
-      </Item>
-    </Stack>
+          <Typography variant="body1">
+            {best_ask_size || "N/A"}
+          </Typography>
+          <Typography variant="body2">
+            Ask Quantity
+          </Typography>
+        </Item>
+      </Grid>
+    </Grid>
   );
 }
