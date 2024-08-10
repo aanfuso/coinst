@@ -23,11 +23,3 @@ export const FOOTER_PROPS = {
   bottomText: 'Agustin Anfuso',
   url: 'https://anfu.space',
 };
-
-export const WS_CONFIG = {
-  "type": "subscribe",
-  "channels": [
-    "ticker",
-    "level2_batch",
-  ]
-};
