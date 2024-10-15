@@ -1,5 +1,4 @@
 import { useEffect, useRef } from "react";
-import throttle from "lodash.throttle";
 
 export const WS_CONFIG = {
   "type": "subscribe",
@@ -20,10 +19,10 @@ export default function useCoinbaseWebSocket(product, dispatch) {
       'product_ids': [product],
     }));
 
-    socket.onmessage = throttle((event) => {
+    socket.onmessage = (event) => {
       const data = JSON.parse(event.data);
       dispatch({ type: data.type, payload: data });
-    }, 1000, { leading: true });
+    };
 
     ws.current = socket;
 
